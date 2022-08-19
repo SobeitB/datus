@@ -26,6 +26,7 @@ export const Header = () => {
       >
          <Flex align="center" mr={5}>
             <Link to='/'>
+               {/* Поменять название сайта */}
                <Heading as="h1" size="lg" letterSpacing={"tighter"}>
                   DATUS
                </Heading>
