@@ -6,15 +6,16 @@ import {Header} from "../widgets/header";
 import {Filtres} from "../widgets/filtres";
 
 function App() {
-  return (
-     <>
-       <Header />
-       <main>
-          <Filtres />
-          <Router />
-       </main>
-     </>
-  );
+
+   return (
+      <div>
+         <Header />
+         <main>
+            <Filtres />
+            <Router />
+         </main>
+      </div>
+   );
 }
 
 export default withProviders(App);

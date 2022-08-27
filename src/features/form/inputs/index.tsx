@@ -2,9 +2,10 @@ import {STYLED_THEME} from "../../../shared/config";
 import {Input} from "@chakra-ui/react";
 import {PropsInput} from "./types";
 import {useImplementation} from "./helpers";
+import { memo } from "react";
 
-export const InputsFrom = ({placeholder, type}:PropsInput) => {
-   const {tokens, limit, contracts, onChange} = useImplementation(type);
+const InputsFrom = ({placeholder, type}:PropsInput) => {
+   const state:any = useImplementation(type);
 
    return(
       <Input
@@ -17,11 +18,11 @@ export const InputsFrom = ({placeholder, type}:PropsInput) => {
 
          placeholder={placeholder}
          mt={type !== 'tokens' ? '10px' : 0}
-         value={
-            type === 'tokens' ? tokens :
-            type === 'limit' ? limit : contracts
-         }
-         onChange={onChange}
+         value={state[type]}
+         onChange={state.onChange}
+         type={type === 'to' || type === 'from' ? 'date' : 'text'}
       />
    );
 }
+
+export default memo(InputsFrom)

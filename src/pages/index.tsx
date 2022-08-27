@@ -1,6 +1,7 @@
 import {Suspense, lazy} from "react";
 import { Route, Routes} from "react-router-dom";
-import {LayoutLoader} from "../shared/ui/Loader/Layout";
+import {LayoutLoader} from "shared/ui/Loader/Layout";
+import {IsConnectedWallet} from "proccesses/isConnectedWallet";
 
 const Home = lazy(() => import ('./Home'));
 const Tokens = lazy(() => import ('./Tokens'));
@@ -23,7 +24,9 @@ export const Router = () => (
             path="/contracts"
             element={
                <Suspense fallback={ <LayoutLoader /> }>
-                  <Contracts />
+                  <IsConnectedWallet>
+                     <Contracts />
+                  </IsConnectedWallet>
                </Suspense>
             }
          />
@@ -32,7 +35,9 @@ export const Router = () => (
             path="/tokens"
             element={
                <Suspense fallback={ <LayoutLoader /> }>
-                  <Tokens />
+                  <IsConnectedWallet>
+                     <Tokens />
+                  </IsConnectedWallet>
                </Suspense>
             }
          />
@@ -41,7 +46,9 @@ export const Router = () => (
             path="/deposits"
             element={
                <Suspense fallback={ <LayoutLoader /> }>
-                  <Deposits />
+                  <IsConnectedWallet>
+                     <Deposits />
+                  </IsConnectedWallet>
                </Suspense>
             }
          />

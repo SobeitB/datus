@@ -1,4 +1,4 @@
 export interface PropsInput {
    placeholder:string;
-   type:'tokens' | 'contracts' | 'limit';
+   type:'tokens' | 'contracts' | 'limit' | 'from' | 'to';
 }
