@@ -4,7 +4,7 @@ import {Center, Heading} from "@chakra-ui/react";
 import {STYLED_THEME} from "../../shared/config";
 
 const Deposits = () => {
-   const {data} = useGetDataInPages<totalFTDeposits>(`deposits`, {
+   const {data} = useGetDataInPages<totalFTDeposits>(`total_deposits_per_contract`, {
       interacted_accounts: [],
       total_interacted_accounts: 0,
       viewed_contracts: []
